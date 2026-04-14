@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emoji: History & Fun Facts</title>
+<style>
+:root {
+  --bg: #ffffff;
+  --bg-secondary: #f9fafb;
+  --border: #e5e7eb;
+  --text: #111827;
+  --text-secondary: #6b7280;
+  --accent: #1a1a1a;
+  --accent-light: #f5f5f5;
+  --success: #4a7c6f;
+  --success-light: #f3f7f5;
+  --warn: #9a7b4a;
+  --warn-light: #faf8f4;
+  --danger: #a15252;
+  --danger-light: #f9f4f4;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Inter", "Segoe UI", sans-serif;
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--text);
+  background: var(--bg);
+  max-width: 100vw;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+code, pre {
+  font-family: "SFMono-Regular", "Consolas", "Menlo", monospace;
+  font-size: 13px;
+}
+
+img, svg { max-width: 100%; height: auto; }
+table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+pre { overflow-x: auto; }
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Hero Header */
+.hero {
+  background: linear-gradient(135deg, #fef9c3 0%, #fde68a 30%, #fdba74 60%, #fca5a5 100%);
+  padding: 56px 20px 48px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 80%, rgba(255,255,255,0.4) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(255,255,255,0.3) 0%, transparent 50%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-emoji {
+  font-size: 56px;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.hero h1 {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--accent);
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+}
+
+.hero .date {
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* Summary Card */
+.summary-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 24px;
+  margin: -24px 20px 32px;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.summary-card .label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+  margin-bottom: 10px;
+}
+
+.summary-card p {
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.8;
+}
+
+/* TOC */
+.toc {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin-bottom: 40px;
+}
+
+.toc h2 {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+}
+
+.toc ol {
+  list-style: none;
+  counter-reset: toc-counter;
+  padding: 0;
+}
+
+.toc li {
+  counter-increment: toc-counter;
+  margin-bottom: 6px;
+}
+
+.toc li::before {
+  content: counter(toc-counter) ".";
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-right: 8px;
+  font-size: 13px;
+}
+
+.toc a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.toc a:hover {
+  border-bottom-color: var(--accent);
+}
+
+/* Sections */
+section {
+  margin-bottom: 48px;
+}
+
+section h2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--accent);
+  color: var(--accent);
+}
+
+section h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 24px 0 12px;
+  color: var(--text);
+}
+
+section p {
+  margin-bottom: 16px;
+  color: var(--text);
+}
+
+/* Definition Card */
+.definition-card {
+  background: var(--accent-light);
+  border-radius: 8px;
+  padding: 28px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.definition-card .big-emoji {
+  font-size: 48px;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.definition-card .term {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+
+.definition-card .pronunciation {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+
+.definition-card .meaning {
+  font-size: 15px;
+  color: var(--text);
+  line-height: 1.8;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* Etymology Box */
+.etymology-box {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.etymology-item {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px 12px;
+  text-align: center;
+}
+
+.etymology-item .kanji {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.etymology-item .reading {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+
+.etymology-item .english {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+/* Callout */
+.callout {
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin: 20px 0;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.callout.info {
+  background: #f0f4ff;
+  border-left: 3px solid #6b7cb8;
+}
+
+.callout.tip {
+  background: var(--success-light);
+  border-left: 3px solid var(--success);
+}
+
+.callout.warn {
+  background: var(--warn-light);
+  border-left: 3px solid var(--warn);
+}
+
+.callout .callout-title {
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+/* SVG container */
+.svg-container {
+  margin: 24px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.svg-container svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Stat Grid */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.stat-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px 16px;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.stat-card .stat-emoji {
+  font-size: 28px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.stat-card .stat-value {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--accent);
+  display: block;
+  line-height: 1.2;
+}
+
+.stat-card .stat-label {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+/* Fun Fact Cards */
+.fact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.fact-item {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px 20px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.fact-item .fact-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+  line-height: 1.4;
+}
+
+.fact-item .fact-body {
+  flex: 1;
+}
+
+.fact-item .fact-title {
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 4px;
+  color: var(--accent);
+}
+
+.fact-item .fact-desc {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* Table */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin: 20px 0;
+}
+
+.data-table th {
+  background: var(--bg-secondary);
+  padding: 10px 14px;
+  text-align: left;
+  font-weight: 700;
+  color: var(--text-secondary);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-bottom: 2px solid var(--border);
+}
+
+.data-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+}
+
+.data-table tr:hover td {
+  background: var(--bg-secondary);
+}
+
+/* Badge */
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.badge.green { background: var(--success-light); color: var(--success); }
+.badge.amber { background: var(--warn-light); color: var(--warn); }
+.badge.red { background: var(--danger-light); color: var(--danger); }
+
+/* Appendix */
+.appendix {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+}
+
+.appendix summary {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 8px 0;
+}
+
+.appendix details {
+  margin-bottom: 16px;
+}
+
+.appendix .detail-content {
+  padding: 16px 0 8px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+.appendix ul {
+  padding-left: 20px;
+  margin: 8px 0;
+}
+
+.appendix li {
+  margin-bottom: 6px;
+}
+
+.appendix a {
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 32px 20px;
+  font-size: 12px;
+  color: var(--text-secondary);
+  border-top: 1px solid var(--border);
+  margin-top: 24px;
+}
+
+/* Print */
+@media print {
+  .hero { padding: 32px 20px; }
+  .summary-card { box-shadow: none; border: 1px solid #ccc; }
+  .stat-card { box-shadow: none; }
+  .fact-item { box-shadow: none; }
+}
+
+/* Mobile adjustments */
+@media (max-width: 480px) {
+  .hero { padding: 40px 16px 36px; }
+  .hero h1 { font-size: 22px; }
+  .hero-emoji { font-size: 44px; }
+  .summary-card { margin: -20px 12px 28px; padding: 20px; }
+  .container { padding: 0 16px; }
+  section h2 { font-size: 18px; }
+  .etymology-box { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .etymology-item { padding: 12px 8px; }
+  .etymology-item .kanji { font-size: 22px; }
+  .stat-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .stat-card { padding: 16px 10px; }
+  .stat-card .stat-value { font-size: 20px; }
+  .fact-item { padding: 14px 16px; gap: 12px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Hero Header -->
+<header class="hero">
+  <div class="hero-content">
+    <span class="hero-emoji">😀📱🌍</span>
+    <h1>Emoji: History & Fun Facts</h1>
+    <div class="date">April 14, 2026</div>
+  </div>
+</header>
+
+<!-- Summary -->
+<div class="summary-card">
+  <div class="label">📋 Summary</div>
+  <p>
+    Emoji are small digital pictograms born in Japan in 1999, created by designer Shigetaka Kurita for NTT DoCoMo's i-mode mobile platform. What started as 176 tiny 12×12-pixel icons to overcome a 250-character email limit has grown into a universal visual language of over 3,600 symbols standardized by the Unicode Consortium. Today, emoji appear in over 6 trillion messages per month, boost social media engagement by nearly 50%, and have even been recognized by Oxford Dictionaries and the Museum of Modern Art.
+  </p>
+</div>
+
+<!-- TOC -->
+<div class="container">
+  <nav class="toc">
+    <h2>📑 Contents</h2>
+    <ol>
+      <li><a href="#what-is-emoji">What is Emoji?</a></li>
+      <li><a href="#history">History &amp; Timeline</a></li>
+      <li><a href="#by-the-numbers">By the Numbers</a></li>
+      <li><a href="#fun-facts">Fun Facts</a></li>
+      <li><a href="#engagement">Emoji &amp; Engagement</a></li>
+      <li><a href="#appendix">Appendix</a></li>
+    </ol>
+  </nav>
+
+  <!-- Section 1: What is Emoji -->
+  <section id="what-is-emoji">
+    <h2>🔤 What is Emoji?</h2>
+
+    <div class="definition-card">
+      <span class="big-emoji">🖼️✍️🔣</span>
+      <div class="term">emoji</div>
+      <div class="pronunciation">/ɪˈmoʊ.dʒi/ — from Japanese</div>
+      <div class="meaning">
+        Small digital pictograms used to express ideas, emotions, and concepts in electronic communication. Despite resembling the English word "emotion," the similarity is purely coincidental.
+      </div>
+    </div>
+
+    <h3>Etymology</h3>
+    <p>The word is a compound of three Japanese elements:</p>
+
+    <div class="etymology-box">
+      <div class="etymology-item">
+        <span class="kanji">絵</span>
+        <span class="reading">e</span>
+        <span class="english">picture</span>
+      </div>
+      <div class="etymology-item">
+        <span class="kanji">文</span>
+        <span class="reading">mo</span>
+        <span class="english">write</span>
+      </div>
+      <div class="etymology-item">
+        <span class="kanji">字</span>
+        <span class="reading">ji</span>
+        <span class="english">character</span>
+      </div>
+    </div>
+
+    <div class="callout info">
+      <div class="callout-title">💡 Not "Emotion"</div>
+      The word "emoji" is entirely Japanese in origin. Its resemblance to the English word "emotion" is a coincidence — it literally translates to "picture character."
+    </div>
+  </section>
+
+  <!-- Section 2: History -->
+  <section id="history">
+    <h2>📜 History & Timeline</h2>
+
+    <p>From a tiny set of pixel art in late-1990s Japan to a universal digital language used by billions — here's how emoji evolved.</p>
+
+    <!-- Timeline SVG -->
+    <div class="svg-container">
+      <svg viewBox="0 0 350 620" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Emoji history timeline from 1999 to present">
+        <!-- Background -->
+        <rect x="0" y="0" width="350" height="620" fill="#f9fafb" rx="8"/>
+
+        <!-- Vertical line -->
+        <line x1="60" y1="30" x2="60" y2="590" stroke="#e5e7eb" stroke-width="2"/>
+
+        <!-- 1999 -->
+        <circle cx="60" cy="50" r="8" fill="#1a1a1a"/>
+        <text x="80" y="47" font-size="13" font-weight="700" fill="#1a1a1a">1999</text>
+        <text x="80" y="64" font-size="11" fill="#6b7280">Shigetaka Kurita creates 176 emoji</text>
+        <text x="80" y="78" font-size="11" fill="#6b7280">for NTT DoCoMo's i-mode (12×12 px)</text>
+
+        <!-- 2007 -->
+        <circle cx="60" cy="140" r="8" fill="#9a7b4a"/>
+        <text x="80" y="137" font-size="13" font-weight="700" fill="#1a1a1a">2007</text>
+        <text x="80" y="154" font-size="11" fill="#6b7280">Google requests Unicode to</text>
+        <text x="80" y="168" font-size="11" fill="#6b7280">standardize emoji internationally</text>
+
+        <!-- 2010 -->
+        <circle cx="60" cy="230" r="8" fill="#4a7c6f"/>
+        <text x="80" y="227" font-size="13" font-weight="700" fill="#1a1a1a">2010</text>
+        <text x="80" y="244" font-size="11" fill="#6b7280">Unicode 6.0 officially adopts emoji —</text>
+        <text x="80" y="258" font-size="11" fill="#6b7280">cross-platform consistency begins</text>
+        <rect x="80" y="266" width="85" height="18" rx="4" fill="#f3f7f5"/>
+        <text x="88" y="279" font-size="10" font-weight="600" fill="#4a7c6f">✅ Game changer</text>
+
+        <!-- 2011 -->
+        <circle cx="60" cy="330" r="8" fill="#9a7b4a"/>
+        <text x="80" y="327" font-size="13" font-weight="700" fill="#1a1a1a">2011</text>
+        <text x="80" y="344" font-size="11" fill="#6b7280">Apple adds emoji keyboard to iOS —</text>
+        <text x="80" y="358" font-size="11" fill="#6b7280">global adoption skyrockets</text>
+
+        <!-- 2015 -->
+        <circle cx="60" cy="420" r="8" fill="#1a1a1a"/>
+        <text x="80" y="417" font-size="13" font-weight="700" fill="#1a1a1a">2015</text>
+        <text x="80" y="434" font-size="11" fill="#6b7280">Diverse skin tones introduced;</text>
+        <text x="80" y="448" font-size="11" fill="#6b7280">😂 named Oxford Word of the Year</text>
+        <rect x="80" y="456" width="105" height="18" rx="4" fill="#faf8f4"/>
+        <text x="88" y="469" font-size="10" font-weight="600" fill="#9a7b4a">🏆 Cultural milestone</text>
+
+        <!-- 2016 -->
+        <circle cx="60" cy="510" r="8" fill="#6b7280"/>
+        <text x="80" y="507" font-size="13" font-weight="700" fill="#1a1a1a">2016</text>
+        <text x="80" y="524" font-size="11" fill="#6b7280">Kurita's original set enters MoMA's</text>
+        <text x="80" y="538" font-size="11" fill="#6b7280">permanent collection as digital art</text>
+
+        <!-- Now -->
+        <circle cx="60" cy="580" r="8" fill="#1a1a1a" stroke="#e5e7eb" stroke-width="3"/>
+        <text x="80" y="577" font-size="13" font-weight="700" fill="#1a1a1a">2026</text>
+        <text x="80" y="594" font-size="11" fill="#6b7280">3,600+ emoji in Unicode Standard</text>
+      </svg>
+    </div>
+
+    <div class="callout tip">
+      <div class="callout-title">🎨 Design Constraints</div>
+      Kurita's original emoji were each drawn within a 12×12 pixel grid. The entire set of 176 icons took up just over 3 kilobytes — smaller than a single modern emoji PNG file. He drew inspiration from manga, Zapf Dingbats, and commonly used text emoticons like <code>:)</code>.
+    </div>
+  </section>
+
+  <!-- Section 3: By the Numbers -->
+  <section id="by-the-numbers">
+    <h2>📊 By the Numbers</h2>
+
+    <div class="stat-grid">
+      <div class="stat-card">
+        <span class="stat-emoji">🚀</span>
+        <span class="stat-value">6T+</span>
+        <span class="stat-label">messages with emoji per month (2026)</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-emoji">📈</span>
+        <span class="stat-value">775%</span>
+        <span class="stat-label">growth in emoji usage over 3 years</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-emoji">🔣</span>
+        <span class="stat-value">3,633</span>
+        <span class="stat-label">emoji in Unicode Standard</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-emoji">🎂</span>
+        <span class="stat-value">1999</span>
+        <span class="stat-label">year the first emoji were created</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Fun Facts -->
+  <section id="fun-facts">
+    <h2>🎉 Fun Facts</h2>
+
+    <div class="fact-list">
+      <div class="fact-item">
+        <span class="fact-icon">🏛️</span>
+        <div class="fact-body">
+          <div class="fact-title">Museum-Grade Art</div>
+          <div class="fact-desc">Kurita's original 176-emoji set is now in the permanent collection at the Museum of Modern Art (MoMA) in New York City, recognized as a landmark of digital design.</div>
+        </div>
+      </div>
+
+      <div class="fact-item">
+        <span class="fact-icon">📅</span>
+        <div class="fact-body">
+          <div class="fact-title">Why July 17?</div>
+          <div class="fact-desc">World Emoji Day is celebrated on July 17 because that's the date displayed on Apple's calendar emoji (📅). The holiday was created in 2014.</div>
+        </div>
+      </div>
+
+      <div class="fact-item">
+        <span class="fact-icon">📖</span>
+        <div class="fact-body">
+          <div class="fact-title">Oxford's "Word" of the Year</div>
+          <div class="fact-desc">In 2015, Oxford Dictionaries named 😂 (Face with Tears of Joy) its Word of the Year — the first time a pictograph received the honor. It was the most used emoji globally that year.</div>
+        </div>
+      </div>
+
+      <div class="fact-item">
+        <span class="fact-icon">🌍</span>
+        <div class="fact-body">
+          <div class="fact-title">They Look Different Everywhere</div>
+          <div class="fact-desc">Emoji can appear quite different across platforms. What you see on an iPhone may look noticeably different on Android, Samsung, or in a web browser — same Unicode codepoint, different visual interpretation.</div>
+        </div>
+      </div>
+
+      <div class="fact-item">
+        <span class="fact-icon">🧑‍🤝‍🧑</span>
+        <div class="fact-body">
+          <div class="fact-title">Skin Tone Diversity</div>
+          <div class="fact-desc">In 2015, Unicode introduced five skin tone modifiers (based on the Fitzpatrick scale), allowing human emoji to represent a wider range of identities — a major step for digital inclusivity.</div>
+        </div>
+      </div>
+
+      <div class="fact-item">
+        <span class="fact-icon">🧠</span>
+        <div class="fact-body">
+          <div class="fact-title">Mental Health Boost</div>
+          <div class="fact-desc">A 2022 survey found that 70% of U.S. Millennials said emoji in digital communication helped improve their mental health, suggesting pictograms add emotional nuance that plain text lacks.</div>
+        </div>
+      </div>
+
+      <div class="fact-item">
+        <span class="fact-icon">✉️</span>
+        <div class="fact-body">
+          <div class="fact-title">Born from Constraints</div>
+          <div class="fact-desc">NTT DoCoMo's i-mode emails were limited to 250 characters. Emoji were invented to say more within that tiny budget — a creative workaround that became a global phenomenon.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Engagement Impact -->
+  <section id="engagement">
+    <h2>📈 Emoji & Engagement</h2>
+
+    <p>Emoji don't just add personality — they measurably improve how audiences interact with content:</p>
+
+    <!-- Engagement Bar Chart SVG -->
+    <div class="svg-container">
+      <svg viewBox="0 0 350 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bar chart showing emoji engagement impact">
+        <rect x="0" y="0" width="350" height="340" fill="#f9fafb" rx="8"/>
+
+        <text x="175" y="28" font-size="12" font-weight="700" fill="#1a1a1a" text-anchor="middle">Engagement Boost from Emoji Usage</text>
+
+        <!-- Grid lines -->
+        <line x1="40" y1="55" x2="330" y2="55" stroke="#e5e7eb" stroke-width="0.5"/>
+        <line x1="40" y1="105" x2="330" y2="105" stroke="#e5e7eb" stroke-width="0.5"/>
+        <line x1="40" y1="155" x2="330" y2="155" stroke="#e5e7eb" stroke-width="0.5"/>
+        <line x1="40" y1="205" x2="330" y2="205" stroke="#e5e7eb" stroke-width="0.5"/>
+        <line x1="40" y1="255" x2="330" y2="255" stroke="#e5e7eb" stroke-width="0.5"/>
+
+        <!-- Y-axis labels -->
+        <text x="35" y="59" font-size="9" fill="#6b7280" text-anchor="end">500%</text>
+        <text x="35" y="109" font-size="9" fill="#6b7280" text-anchor="end">400%</text>
+        <text x="35" y="159" font-size="9" fill="#6b7280" text-anchor="end">300%</text>
+        <text x="35" y="209" font-size="9" fill="#6b7280" text-anchor="end">200%</text>
+        <text x="35" y="259" font-size="9" fill="#6b7280" text-anchor="end">100%</text>
+
+        <!-- Baseline -->
+        <line x1="40" y1="305" x2="330" y2="305" stroke="#1a1a1a" stroke-width="1"/>
+
+        <!-- Bar 1: Brand Response (400%) -->
+        <rect x="65" y="105" width="60" height="200" rx="4" fill="#1a1a1a"/>
+        <text x="95" y="97" font-size="12" font-weight="700" fill="#1a1a1a" text-anchor="middle">400%</text>
+        <text x="95" y="322" font-size="10" fill="#6b7280" text-anchor="middle">Brand</text>
+        <text x="95" y="335" font-size="10" fill="#6b7280" text-anchor="middle">Response</text>
+
+        <!-- Bar 2: Instagram (47.7%) -->
+        <rect x="150" y="281" width="60" height="24" rx="4" fill="#4a7c6f"/>
+        <text x="180" y="274" font-size="12" font-weight="700" fill="#4a7c6f" text-anchor="middle">47.7%</text>
+        <text x="180" y="322" font-size="10" fill="#6b7280" text-anchor="middle">Instagram</text>
+        <text x="180" y="335" font-size="10" fill="#6b7280" text-anchor="middle">Interactions</text>
+
+        <!-- Bar 3: Email Open Rate (29%) -->
+        <rect x="235" y="290" width="60" height="15" rx="4" fill="#9a7b4a"/>
+        <text x="265" y="283" font-size="12" font-weight="700" fill="#9a7b4a" text-anchor="middle">29%</text>
+        <text x="265" y="322" font-size="10" fill="#6b7280" text-anchor="middle">Email</text>
+        <text x="265" y="335" font-size="10" fill="#6b7280" text-anchor="middle">Open Rate</text>
+      </svg>
+    </div>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Channel</th>
+          <th>Metric</th>
+          <th>Impact</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>🏢 Brand Messaging</td>
+          <td>Customer response rate</td>
+          <td><span class="badge green">4× more likely</span></td>
+        </tr>
+        <tr>
+          <td>📸 Instagram</td>
+          <td>Post interactions</td>
+          <td><span class="badge green">+47.7%</span></td>
+        </tr>
+        <tr>
+          <td>📧 Email</td>
+          <td>Open rate (emoji in subject)</td>
+          <td><span class="badge green">+29%</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout warn">
+      <div class="callout-title">⚠️ Platform Differences</div>
+      Keep in mind that emoji render differently across devices and platforms. An emoji chosen for its appearance on one platform may convey a slightly different tone on another — test across platforms when using emoji in marketing.
+    </div>
+  </section>
+
+  <!-- Appendix -->
+  <div class="appendix" id="appendix">
+    <section>
+      <h2>📎 Appendix</h2>
+
+      <details>
+        <summary>📝 Research Process</summary>
+        <div class="detail-content">
+          <ol>
+            <li>Searched for "what is emoji history and fun facts" — gathered overview of origins, timeline, and notable milestones</li>
+            <li>Searched for "emoji origin Japan Shigetaka Kurita history" — gathered detailed biographical and design context about the creator</li>
+            <li>Searched for "emoji fun facts surprising statistics" — gathered engagement statistics and cultural fun facts</li>
+            <li>Cross-referenced findings across multiple sources for accuracy</li>
+          </ol>
+        </div>
+      </details>
+
+      <details>
+        <summary>📊 Key Evidence</summary>
+        <div class="detail-content">
+          <ul>
+            <li><strong>176 emoji, 12×12 px grid, 3 KB total</strong> — original set specifications (confirmed by MoMA, CNN, Wikipedia)</li>
+            <li><strong>Unicode 6.0 (2010)</strong> — emoji standardization milestone (confirmed by multiple sources)</li>
+            <li><strong>6 trillion+ messages/month</strong> — 2026 usage statistic (Amra and Elma, 2026)</li>
+            <li><strong>775% growth</strong> — three-year usage increase (Amra and Elma, 2026)</li>
+            <li><strong>47.7% Instagram boost</strong> — engagement metric (Brandwatch, FactRetriever)</li>
+            <li><strong>29% email open rate increase</strong> — subject line emoji impact (Amra and Elma)</li>
+            <li><strong>4× brand response rate</strong> — customer engagement with emoji messages (multiple sources)</li>
+            <li><strong>70% of Millennials</strong> — mental health benefit survey (Statista, 2022)</li>
+          </ul>
+        </div>
+      </details>
+
+      <details>
+        <summary>🔗 Sources</summary>
+        <div class="detail-content">
+          <ul>
+            <li><a href="https://www.chattyfeet.com/blogs/chattyfeet-socks-blog/fun-with-emojis">The History of Emojis and Other Fun Facts — ChattyFeet</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Shigetaka_Kurita">Shigetaka Kurita — Wikipedia</a></li>
+            <li><a href="https://edition.cnn.com/style/article/emoji-shigetaka-kurita-standards-manual">Shigetaka Kurita: The man who invented emoji — CNN</a></li>
+            <li><a href="https://www.moma.org/collection/works/196070">Shigetaka Kurita. Emoji. 1998–1999 — MoMA</a></li>
+            <li><a href="https://www.amraandelma.com/facts-emoji-and-statistics/">Emoji Statistics in 2026 — Amra And Elma</a></li>
+            <li><a href="https://www.factretriever.com/emoji-facts">48 Cool Emoji Facts — FactRetriever</a></li>
+            <li><a href="https://www.typeroom.eu/its-the-world-emoji-day-heres-10-fun-facts-about-the-history-of-emojis">World Emoji Day Fun Facts — TypeRoom</a></li>
+            <li><a href="https://commonplacefacts.com/2024/08/30/emoji-history-and-development/">From Morse Code to 😂: History of Emojis — Commonplace Fun Facts</a></li>
+            <li><a href="https://www.hackreactor.com/resources/the-invention-of-emojis-a-brief-history/">The Invention of Emojis: A Brief History — Hack Reactor</a></li>
+            <li><a href="https://weblogwevlog.com/emoji-history/">Emoji History — We Blog We Vlog</a></li>
+          </ul>
+        </div>
+      </details>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    Generated with Claude Code · April 14, 2026
+  </footer>
+
+</div>
+</body>
+</html>
